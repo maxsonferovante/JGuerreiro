@@ -3,7 +3,7 @@ package profissao;
 import armas.Espada;
 import personagem.Personagem;
 
-public abstract class Guerreiro extends Personagem implements Tanker{
+public abstract class Guerreiro extends Personagem{
 	protected int  agility, armor,strenght;
 	protected Espada espadadoGuerreiro;
 	
