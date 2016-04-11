@@ -2,7 +2,7 @@ package profissao;
 
 import personagem.Personagem;
 
-public abstract class Mago extends Personagem{
+public abstract class Mago extends Personagem implements Supporter{
 	protected int mana ,intelligence;
 	
 	
