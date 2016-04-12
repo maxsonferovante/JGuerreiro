@@ -1,10 +1,15 @@
 package profissao;
 
+import armas.Cajado;
 import personagem.Personagem;
 
-public abstract class Mago extends Personagem{
+import java.util.Random;
+
+import atacar.Atacavel;
+
+public abstract class Mago extends Personagem implements Atacavel{
 	protected int mana ,intelligence;
-	
+	protected Cajado cajadoDoMago;
 	
 	protected static final  int INCREMENTO_MANA = 13, INCREMENTO_INTLLIGENCE = 3, DECREMENTO_MANA = 13;
     
@@ -15,7 +20,34 @@ public abstract class Mago extends Personagem{
 		super(nome,dia,mes, ano);
 		this.intelligence = 33;
 		this.mana = 33;
+		cajadoDoMago = new Cajado("Madeira",true);
 	}
+	//Método assinado na implements na Atacavel
+	public float atacarComArma(float vidaDoInimigo) {
+		if(esquiva()){
+			System.out.println("O Guerreiro " + this.nomedoPersonagem + " esta atacando com o cajado...");
+			if ( (this.intelligence + (float)this.mana*0.02) > vidaDoInimigo)
+				vidaDoInimigo -= (this.intelligence + (float)this.mana*0.02)/3;  
+			else
+				if( (this.intelligence + (float)this.mana*0.02) == vidaDoInimigo)
+					vidaDoInimigo -= ((this.intelligence + (float)this.mana*0.02))/5;
+				else
+					System.out.println("O Inimigo defendou o ataque com o cajado...");
+	    
+			if (vidaDoInimigo < 0) vidaDoInimigo = 0;
+		
+			this.mana -= (float)this.mana*0.02;
+		}
+		else{
+			System.out.println("O Inimigo esquivou do ataque com a arma do Mago.");
+		}
+	    return vidaDoInimigo;
+	}	
+
+	public boolean esquiva(){
+		return new Random().nextBoolean();
+	}
+
 	@Override
 	public void adicionarRecompensas(final float recompensa){
 		recompensas.add(recompensa);

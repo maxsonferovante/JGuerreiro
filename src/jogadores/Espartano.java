@@ -39,19 +39,45 @@ public final class Espartano extends Guerreiro{
 	    else
 	        System.out.println("O Guerreiro Espartano ja esta na linha ");
 	}
-	
 	@Override
-	public void ataqueFisicoGuerreiro(int resistenciadoInimigo){
-		System.out.println("O Guerreiro " + this.nomedoPersonagem + " esta atacando fisicamente...");
-		if ( (this.agility + this.strenght/4) > resistenciadoInimigo)
-			resistenciadoInimigo -= (this.agility + this.strenght)/3;  
-	    else
-	        if( (this.agility + this.strenght/4) == resistenciadoInimigo)
-	        	resistenciadoInimigo -= (this.agility + this.strenght)/5;
-	        else
-	            System.out.println("O Inimigo defendou o ataque fisico...");
-	    
-	    if (resistenciadoInimigo < 0) resistenciadoInimigo = 0;
+	public float golpe(float vidaDoInimigo) {
+		
+		if (esquiva()){
+			System.out.println("Golpe do Espartano" 
+					+ nomedoPersonagem 
+					+ "não realizado. Houve esquina do Inimigo");
+		}
+		else{
+				vidaDoInimigo -= ((float)(agility+strenght))*0.3;
+				System.out.println("Golpe do Espartano" 
+				+ nomedoPersonagem 
+				+ " realizado..."
+				+ "\nDano causado foi de " + (((float)(agility+strenght))*0.3));
+			}
+		return vidaDoInimigo;
+	}
+	public float[] atacarComArma(float VidaDoInimigo, int manaDoInimigo){
+		if (esquiva()){
+			if (espadadoGuerreiro.isEmpunhada()){
+				if ((this.strenght + this.agility) / 5 > VidaDoInimigo){
+					System.out.println(" O Guerreiro " + this.nomedoPersonagem +" esta atacando com sua espada... ");
+	            
+					VidaDoInimigo -= VidaDoInimigo - ((this.strenght + this.agility) / 5);
+					manaDoInimigo -= ((float)manaDoInimigo)*0.05; 
+	            
+					System.out.println(" Ataque realizado... ");
+				}
+				else
+					System.out.println(" O Guerreiro " + this.nomedoPersonagem + " teve seu ataque com a espada defendido...  ");
+			}
+			else
+				System.out.println(" Espada do Guerreiro " + this.nomedoPersonagem +" desempunhada... ");		
+			}
+			else{
+				System.out.println("O Inimigo esquivou do ataque da arma do Espartano.");
+			}
+		float[] resultado = new float[]{VidaDoInimigo,manaDoInimigo};
+		return resultado;
 	}
 	@Override
 	public void defesadoGuerreiro(int danodoInimigo){

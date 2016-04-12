@@ -1,9 +1,12 @@
 package profissao;
 
+import java.util.Random;
+
 import armas.Espada;
+import atacar.Atacavel;
 import personagem.Personagem;
 
-public abstract class Guerreiro extends Personagem{
+public abstract class Guerreiro extends Personagem implements Atacavel{
 	protected int  agility, armor,strenght;
 	protected Espada espadadoGuerreiro;
 	
@@ -31,21 +34,28 @@ public abstract class Guerreiro extends Personagem{
 		Guerreiro.quantdeGuerreiros++;
 	}
 	
-	void ataqueEspadaGuerreiro(int resistenciadoInimigo){
-		if (espadadoGuerreiro.isEmpunhada())
-	    {
-	        if ((this.strenght + this.agility) / 5 > resistenciadoInimigo)
-	        {
-	            System.out.println(" O Guerreiro " + this.nomedoPersonagem +" esta atacando com sua espada... ");
-	            resistenciadoInimigo -= resistenciadoInimigo - ((this.strenght + this.agility) / 5);
-
-	            System.out.println(" Ataque realizado... ");
-	        }
-	        else
-	            System.out.println(" O Guerreiro " + this.nomedoPersonagem + " teve seu ataque com a espada defendido...  ");
-	    }
-	    else
-	        System.out.println(" Espada do Guerreiro " + this.nomedoPersonagem +" desempunhada... ");
+	//Método assinado na implements na Atacavel
+	public float atacarComArma(float vidaDoInimigo) {
+		if (esquiva()){
+			System.out.println("O Guerreiro " + this.nomedoPersonagem + " esta atacando com a sua espada...");
+			if ( (this.agility + this.strenght/4) > vidaDoInimigo)
+				vidaDoInimigo -= (this.agility + this.strenght)/3;  
+		    else
+		        if( (this.agility + this.strenght/4) == vidaDoInimigo)
+		        	vidaDoInimigo -= (this.agility + this.strenght)/5;
+		        else
+		            System.out.println("O Inimigo defendou o ataque com a espada...");
+		    
+		    if (vidaDoInimigo < 0) vidaDoInimigo = 0;			
+		}
+		else{
+			System.out.println("O Inimigo esquivou do ataque com a arma do Guerreiro.");
+		}
+	    return vidaDoInimigo;
+	}	
+	
+	public boolean esquiva(){
+		return new Random().nextBoolean();
 	}
 	@Override
 	public void adicionarRecompensas(final float recompensa){
@@ -79,7 +89,6 @@ public abstract class Guerreiro extends Personagem{
         }
     }
     
-    public abstract void ataqueFisicoGuerreiro(int resistenciadoInimigo);
 	public abstract void defesadoGuerreiro(int danodoInimigo);
 	    
 }
