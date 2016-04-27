@@ -13,7 +13,11 @@ public final class Espada {
 		this.comprimentodaEspada = compri;
 		this.empunhada = emp;
 	}
-
+	public Espada(final Espada outra){
+		this.tipodaEspada = outra.getTipodaEspada();
+		this.comprimentodaEspada = outra.getComprimentodaEspada();
+		this.empunhada = outra.isEmpunhada();
+	}
 	public String getTipodaEspada() {
 		return tipodaEspada;
 	}

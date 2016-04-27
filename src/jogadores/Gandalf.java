@@ -1,6 +1,7 @@
 package jogadores;
 
-import armas.Cajado;
+import java.util.ArrayList;
+
 import profissao.Mago;
 
 
@@ -20,17 +21,9 @@ public final class Gandalf extends Mago{
 		this.prepotencia = prepo;
 	}
 	public Gandalf(final Gandalf outro) {
-		this.nomedoPersonagem = outro.nomedoPersonagem;
-	    this.life = outro.life;
-	    this.mana = outro.mana;
-	    this.intelligence = outro.intelligence;
+		super(outro.nomedoPersonagem,outro.datadeNascimento.getDay(),outro.datadeNascimento.getMonth() ,outro.datadeNascimento.getYear(),
+				outro.life, outro.mana, outro.intelligence, outro.recompensas, outro.cajadoDoMago);
 	    this.prepotencia = outro.prepotencia;
-	    
-	    this.recompensas = outro.recompensas;
-	    
-	    datadeNascimento.setMonth(outro.datadeNascimento.getMonth());
-	    datadeNascimento.setYear(outro.datadeNascimento.getYear());
-	    datadeNascimento.setDay(outro.datadeNascimento.getDay());
 	}
 	public float golpe(float vidaDoInimigo) {
 		

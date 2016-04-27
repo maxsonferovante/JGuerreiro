@@ -1,5 +1,6 @@
 package profissao;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import armas.Espada;
@@ -33,7 +34,14 @@ public abstract class Guerreiro extends Personagem implements Atacavel{
 		this.espadadoGuerreiro = new Espada();
 		Guerreiro.quantdeGuerreiros++;
 	}
-	
+	public Guerreiro(String nome, int dia, int mes, int ano,float lif, int agi, int arm, int stre, ArrayList <Float> recomp, Espada arma) {
+		super(nome,dia,mes,ano, recomp);
+		this.agility = agi;
+		this.strenght = arm;
+		
+		this.espadadoGuerreiro = new Espada(arma);
+		Guerreiro.quantdeGuerreiros++;
+	}
 	//Método assinado na implements na Atacavel
 	public float atacarComArma(float vidaDoInimigo) {
 		if (esquiva()){

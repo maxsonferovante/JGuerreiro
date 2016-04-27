@@ -18,17 +18,8 @@ public final class Espartano extends Guerreiro{
 			
 	}
 	public Espartano(final Espartano outro){
-		this.agility = outro.agility;
-		this.armor = outro.armor;
-		this.strenght = outro.strenght;
-		
-		this.nomedoPersonagem = outro.nomedoPersonagem;
-		this.life = outro.life;
-		this.recompensas = outro.recompensas;
-		
-		this.datadeNascimento.setDay(outro.datadeNascimento.getDay());
-		this.datadeNascimento.setMonth(outro.datadeNascimento.getMonth());
-		this.datadeNascimento.setYear(outro.datadeNascimento.getYear());
+		super(outro.nomedoPersonagem,outro.datadeNascimento.getDay(),outro.datadeNascimento.getMonth(),outro.datadeNascimento.getYear(),
+				outro.life,outro.agility,outro.armor,outro.strenght, outro.recompensas, outro.espadadoGuerreiro);
 		
 		this.linhaDainfantaria = outro.linhaDainfantaria;
 		

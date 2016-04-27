@@ -3,6 +3,7 @@ package profissao;
 import armas.Cajado;
 import personagem.Personagem;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import atacar.Atacavel;
@@ -21,6 +22,12 @@ public abstract class Mago extends Personagem implements Atacavel{
 		this.intelligence = 33;
 		this.mana = 33;
 		cajadoDoMago = new Cajado("Madeira",true);
+	}
+	public Mago(String nome, int dia, int mes,int ano,float lif,int man,int inteli, ArrayList <Float> recomp , Cajado arma) {
+		super(nome,dia,mes, ano, recomp);
+		this.intelligence = 33;
+		this.mana = 33;
+		cajadoDoMago = new Cajado(arma);
 	}
 	//Método assinado na implements na Atacavel
 	public float atacarComArma(float vidaDoInimigo) {

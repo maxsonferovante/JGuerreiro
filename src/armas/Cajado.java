@@ -11,18 +11,14 @@ public final class Cajado {
 		this.tipodoCajado = tipo;
 		this.equipado = equi;
 	}
+	public Cajado(final Cajado outro){
+		this.tipodoCajado = outro.getTipodoCajado();
+		this.equipado = outro.isEquipado();
+	}
 
-	public String getTipodoCajado() {
-		return tipodoCajado;
-	}
-	public void setTipodoCajado(String tipodoCajado) {
-		this.tipodoCajado = tipodoCajado;
-	}
-	public boolean isEquipado() {
-		return equipado;
-	}
-	public void setEquipado(boolean equipado) {
-		this.equipado = equipado;
-	}
+	public String getTipodoCajado() {return tipodoCajado;}
+	public void setTipodoCajado(String tipodoCajado) {this.tipodoCajado = tipodoCajado;}
+	public boolean isEquipado() {return equipado;}
+	public void setEquipado(boolean equipado) {this.equipado = equipado;}
 
 }
