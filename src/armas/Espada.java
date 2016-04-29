@@ -2,14 +2,14 @@ package armas;
 
 public final class Espada {
 	private String tipodaEspada;
-	private float comprimentodaEspada;
+	private double comprimentodaEspada;
 	private boolean empunhada;
 
 	public Espada() {
 
 	}
 
-	public Espada(String tipo, float compri, boolean emp) {
+	public Espada(String tipo, double compri, boolean emp) {
 		this.tipodaEspada = tipo;
 		this.comprimentodaEspada = compri;
 		this.empunhada = emp;
@@ -29,11 +29,11 @@ public final class Espada {
 		this.tipodaEspada = tipodaEspada;
 	}
 
-	public float getComprimentodaEspada() {
+	public double getComprimentodaEspada() {
 		return comprimentodaEspada;
 	}
 
-	public void setComprimentodaEspada(float comprimentodaEspada) {
+	public void setComprimentodaEspada(double comprimentodaEspada) {
 		this.comprimentodaEspada = comprimentodaEspada;
 	}
 
