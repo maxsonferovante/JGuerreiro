@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public abstract class Personagem {
 	protected String nomedoPersonagem;
-	protected float life, xpdoPersonagem;
-	protected ArrayList <Float> recompensas;
+	protected double life, xpdoPersonagem;
+	protected ArrayList <Double>  recompensas;
 	
 	protected Data datadeNascimento;
 	
@@ -27,31 +27,31 @@ public abstract class Personagem {
 		this.recompensas  = new ArrayList <>();
 	}
 	
-	public Personagem(String nome, int dia, int mes, int ano, ArrayList <Float> recomp) {
+	public Personagem(String nome, int dia, int mes, int ano, ArrayList <Double>  recomp) {
 		datadeNascimento =  new Data(dia,mes, ano);
 		this.life = 1200;
 		this.nomedoPersonagem = nome;
 		this.xpdoPersonagem = 1;
 		this.recompensas  = new ArrayList <>(recomp);
 	}
-	public abstract void adicionarRecompensas(final float recompensa);
+	public abstract void adicionarRecompensas(final double recompensa);
 	public abstract void aumentarXp(final int acrescimo);
 	
 	public String getNome() { 
 		return this.nomedoPersonagem; 
 	}
-	public float getLife() { 
+	public double getLife() { 
 		return this.life; 
 	}
-	public float getXpdoPersonagem() { 
+	public double getXpdoPersonagem() { 
 		return this.xpdoPersonagem; 
 	}
 	
-	public void setxpdoPersonagem(float xp){
+	public void setxpdoPersonagem(double xp){
 		if (xp > 0)
 			this.xpdoPersonagem = xp;			
 	}
-	public void setLife(float vida ){
+	public void setLife(double vida ){
 		if (vida >0)
 			this.life = vida;
 	}

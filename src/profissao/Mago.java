@@ -23,27 +23,27 @@ public abstract class Mago extends Personagem implements Atacavel{
 		this.mana = 33;
 		cajadoDoMago = new Cajado("Madeira",true);
 	}
-	public Mago(String nome, int dia, int mes,int ano,float lif,int man,int inteli, ArrayList <Float> recomp , Cajado arma) {
+	public Mago(String nome, int dia, int mes,int ano,double lif,int man,int inteli, ArrayList <Double> recomp , Cajado arma) {
 		super(nome,dia,mes, ano, recomp);
 		this.intelligence = 33;
 		this.mana = 33;
 		cajadoDoMago = new Cajado(arma);
 	}
 	//Método assinado na implements na Atacavel
-	public float atacarComArma(float vidaDoInimigo) {
+	public double atacarComArma(double vidaDoInimigo) {
 		if(esquiva()){
 			System.out.println("O Guerreiro " + this.nomedoPersonagem + " esta atacando com o cajado...");
-			if ( (this.intelligence + (float)this.mana*0.02) > vidaDoInimigo)
-				vidaDoInimigo -= (this.intelligence + (float)this.mana*0.02)/3;  
+			if ( (this.intelligence + (double)this.mana*0.02) > vidaDoInimigo)
+				vidaDoInimigo -= (this.intelligence + (double)this.mana*0.02)/3;  
 			else
-				if( (this.intelligence + (float)this.mana*0.02) == vidaDoInimigo)
-					vidaDoInimigo -= ((this.intelligence + (float)this.mana*0.02))/5;
+				if( (this.intelligence + (double)this.mana*0.02) == vidaDoInimigo)
+					vidaDoInimigo -= ((this.intelligence + (double)this.mana*0.02))/5;
 				else
 					System.out.println("O Inimigo defendou o ataque com o cajado...");
 	    
 			if (vidaDoInimigo < 0) vidaDoInimigo = 0;
 		
-			this.mana -= (float)this.mana*0.02;
+			this.mana -= (double)this.mana*0.02;
 		}
 		else{
 			System.out.println("O Inimigo esquivou do ataque com a arma do Mago.");
@@ -56,7 +56,7 @@ public abstract class Mago extends Personagem implements Atacavel{
 	}
 
 	@Override
-	public void adicionarRecompensas(final float recompensa){
+	public void adicionarRecompensas(final double recompensa){
 		recompensas.add(recompensa);
 	}
 	

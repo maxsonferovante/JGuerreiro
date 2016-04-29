@@ -25,7 +25,7 @@ public final class Gandalf extends Mago{
 				outro.life, outro.mana, outro.intelligence, outro.recompensas, outro.cajadoDoMago);
 	    this.prepotencia = outro.prepotencia;
 	}
-	public float golpe(float vidaDoInimigo) {
+	public double golpe(double vidaDoInimigo) {
 		
 		if (esquiva()){
 			System.out.println("Golpe do Espartano" 
@@ -33,23 +33,23 @@ public final class Gandalf extends Mago{
 					+ "não realizado. Houve esquina do Inimigo");
 		}
 		else{
-			vidaDoInimigo -= (intelligence+((float)mana)*0.3);
+			vidaDoInimigo -= (intelligence+((double)mana)*0.3);
 			System.out.println("Golpe do Espartano" 
 			+ nomedoPersonagem 
 			+ " realizado..."
-			+ "\nDano causado foi de " + ((intelligence+((float)mana)*0.3)));
+			+ "\nDano causado foi de " + ((intelligence+((double)mana)*0.3)));
 			}
-		this.mana -= (float)this.mana*0.02;
+		this.mana -= (double)this.mana*0.02;
 		return vidaDoInimigo;
 	}
-	public float[] atacarComArma(float VidaDoInimigo, int manaDoInimigo){
+	public double[] atacarComArma(double VidaDoInimigo, int manaDoInimigo){
 		if (esquiva()){
 			if (cajadoDoMago.isEquipado()){
-				if ((intelligence+((float)mana)*0.3) > VidaDoInimigo){
+				if ((intelligence+((double)mana)*0.3) > VidaDoInimigo){
 					System.out.println(" O Guerreiro " + this.nomedoPersonagem +" esta atacando com sua espada... ");
 	            
-					VidaDoInimigo -= (intelligence+((float)mana)*0.3);
-					manaDoInimigo -= ((float)manaDoInimigo)*0.05; 
+					VidaDoInimigo -= (intelligence+((double)mana)*0.3);
+					manaDoInimigo -= ((double)manaDoInimigo)*0.05; 
 	            
 					System.out.println(" Ataque realizado... ");
 				}
@@ -62,8 +62,8 @@ public final class Gandalf extends Mago{
 			else{
 				System.out.println("O Inimigo esquivou do ataque da arma do Espartano.");
 			}
-		this.mana -= (float)this.mana*0.02;
-		float[] resultado = new float[]{VidaDoInimigo,manaDoInimigo};
+		this.mana -= (double)this.mana*0.02;
+		double[] resultado = new double[]{VidaDoInimigo,manaDoInimigo};
 		return resultado;
 	}
 

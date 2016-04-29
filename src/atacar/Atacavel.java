@@ -1,8 +1,8 @@
 package atacar;
 
 public interface Atacavel {
-	 float atacarComArma(float VidaDoInimigo);
-	 float[] atacarComArma(float VidaDoInimigo, int manaDoInimigo);
-	 float golpe(float VidaDoinimigo);
+	 double atacarComArma(double VidaDoInimigo);
+	 double[] atacarComArma(double VidaDoInimigo, int manaDoInimigo);
+	 double golpe(double VidaDoinimigo);
 	 boolean esquiva();
 }

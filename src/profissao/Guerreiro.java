@@ -34,7 +34,7 @@ public abstract class Guerreiro extends Personagem implements Atacavel{
 		this.espadadoGuerreiro = new Espada();
 		Guerreiro.quantdeGuerreiros++;
 	}
-	public Guerreiro(String nome, int dia, int mes, int ano,float lif, int agi, int arm, int stre, ArrayList <Float> recomp, Espada arma) {
+	public Guerreiro(String nome, int dia, int mes, int ano,double lif, int agi, int arm, int stre, ArrayList <Double> recomp, Espada arma) {
 		super(nome,dia,mes,ano, recomp);
 		this.agility = agi;
 		this.strenght = arm;
@@ -43,7 +43,7 @@ public abstract class Guerreiro extends Personagem implements Atacavel{
 		Guerreiro.quantdeGuerreiros++;
 	}
 	//Método assinado na implements na Atacavel
-	public float atacarComArma(float vidaDoInimigo) {
+	public double atacarComArma(double vidaDoInimigo) {
 		if (esquiva()){
 			System.out.println("O Guerreiro " + this.nomedoPersonagem + " esta atacando com a sua espada...");
 			if ( (this.agility + this.strenght/4) > vidaDoInimigo)
@@ -66,7 +66,7 @@ public abstract class Guerreiro extends Personagem implements Atacavel{
 		return new Random().nextBoolean();
 	}
 	@Override
-	public void adicionarRecompensas(final float recompensa){
+	public void adicionarRecompensas(final double recompensa){
 		recompensas.add(recompensa);
 	}
 	@Override

@@ -31,7 +31,7 @@ public final class Espartano extends Guerreiro{
 	        System.out.println("O Guerreiro Espartano ja esta na linha ");
 	}
 	@Override
-	public float golpe(float vidaDoInimigo) {
+	public double golpe(double vidaDoInimigo) {
 		
 		if (esquiva()){
 			System.out.println("Golpe do Espartano" 
@@ -39,22 +39,22 @@ public final class Espartano extends Guerreiro{
 					+ "não realizado. Houve esquina do Inimigo");
 		}
 		else{
-				vidaDoInimigo -= ((float)(agility+strenght))*0.3;
+				vidaDoInimigo -= ((double)(agility+strenght))*0.3;
 				System.out.println("Golpe do Espartano" 
 				+ nomedoPersonagem 
 				+ " realizado..."
-				+ "\nDano causado foi de " + (((float)(agility+strenght))*0.3));
+				+ "\nDano causado foi de " + (((double)(agility+strenght))*0.3));
 			}
 		return vidaDoInimigo;
 	}
-	public float[] atacarComArma(float VidaDoInimigo, int manaDoInimigo){
+	public double[] atacarComArma(double VidaDoInimigo, int manaDoInimigo){
 		if (esquiva()){
 			if (espadadoGuerreiro.isEmpunhada()){
 				if ((this.strenght + this.agility) / 5 > VidaDoInimigo){
 					System.out.println(" O Guerreiro " + this.nomedoPersonagem +" esta atacando com sua espada... ");
 	            
 					VidaDoInimigo -= VidaDoInimigo - ((this.strenght + this.agility) / 5);
-					manaDoInimigo -= ((float)manaDoInimigo)*0.05; 
+					manaDoInimigo -= ((double)manaDoInimigo)*0.05; 
 	            
 					System.out.println(" Ataque realizado... ");
 				}
@@ -67,7 +67,7 @@ public final class Espartano extends Guerreiro{
 			else{
 				System.out.println("O Inimigo esquivou do ataque da arma do Espartano.");
 			}
-		float[] resultado = new float[]{VidaDoInimigo,manaDoInimigo};
+		double[] resultado = new double[]{VidaDoInimigo,manaDoInimigo};
 		return resultado;
 	}
 	@Override
