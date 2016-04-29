@@ -2,6 +2,7 @@ package jogadores;
 
 import java.util.ArrayList;
 
+import personagem.Personagem;
 import profissao.Mago;
 
 
@@ -87,6 +88,17 @@ public final class Gandalf extends Mago{
             this.life -= (ataquedoInimigo/this.mana/8);
             System.out.println("\nLife do Mago " + this.life);
         }
+	}
+	@Override
+	 public void aumentarXp(final int acrescimo){
+		this.life += this.life * ( acrescimo *( ( Personagem.INCREMENTO_LIFE + this.xpdoPersonagem ) / 100 ));
+		this.intelligence += this.intelligence * ( acrescimo *( ( Mago.INCREMENTO_INTLLIGENCE + this.xpdoPersonagem ) / 100 ));
+		this.mana += this.mana * ( acrescimo *( ( Mago.INCREMENTO_MANA + this.xpdoPersonagem ) / 100 ));
+		
+		if (acrescimo == 1)
+			this.xpdoPersonagem++;
+		else
+			this.xpdoPersonagem += acrescimo;
 	}
 	
 }

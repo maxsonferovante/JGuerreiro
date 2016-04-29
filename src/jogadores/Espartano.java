@@ -1,4 +1,5 @@
 package jogadores;
+import personagem.Personagem;
 import profissao.Guerreiro;
 
 public final class Espartano extends Guerreiro{
@@ -78,4 +79,17 @@ public final class Espartano extends Guerreiro{
             System.out.println("Life do Guerreiro " + this.life );
         }
 	}
+	@Override
+	 public void aumentarXp(final int acrescimo){
+		this.life += this.life * ( acrescimo *( ( Personagem.INCREMENTO_LIFE + this.xpdoPersonagem ) / 100 ));
+		this.strenght += this.strenght * ( acrescimo * ( ( Guerreiro.INCREMENTO_STRENGHT + this.xpdoPersonagem ) / 100));
+		this.agility += this.agility * ( acrescimo *( ( Guerreiro.INCREMENTO_AGILITY+ this.xpdoPersonagem ) /100));
+		this.armor += this.armor * ( acrescimo * ( ( Guerreiro.INCREMENTO_ARMOR + this.xpdoPersonagem ) /100));
+		    
+		if (acrescimo == 1)
+			this.xpdoPersonagem++;
+		else
+			this.xpdoPersonagem += acrescimo;
+	}
+	
 }

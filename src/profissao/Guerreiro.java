@@ -69,18 +69,6 @@ public abstract class Guerreiro extends Personagem implements Atacavel{
 	public void adicionarRecompensas(final double recompensa){
 		recompensas.add(recompensa);
 	}
-	@Override
-	 public void aumentarXp(final int acrescimo){
-		this.life += this.life * ( acrescimo *( ( Personagem.INCREMENTO_LIFE + this.xpdoPersonagem ) / 100 ));
-		this.strenght += this.strenght * ( acrescimo * ( ( Guerreiro.INCREMENTO_STRENGHT + this.xpdoPersonagem ) / 100));
-		this.agility += this.agility * ( acrescimo *( ( Guerreiro.INCREMENTO_AGILITY+ this.xpdoPersonagem ) /100));
-		this.armor += this.armor * ( acrescimo * ( ( Guerreiro.INCREMENTO_ARMOR + this.xpdoPersonagem ) /100));
-		    
-		if (acrescimo == 1)
-			this.xpdoPersonagem++;
-		else
-			this.xpdoPersonagem += acrescimo;
-	}
 	
 	static void ordenarArmaduraVestida(){
 		if (!armaduraVestida){
