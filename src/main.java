@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 import jogadores.Espartano;
 import jogadores.Gandalf;
 
+import profissao.Mago;
+
 import personagem.Data;
 import personagem.Personagem;
 
@@ -84,11 +86,11 @@ public class main {
 			break;
 		}
 		for (Personagem personagem : personagens) {
-			if (cenario == 0 && personagem instanceof Espartano) {
-				((Espartano) personagem).aumentarXp(2);
-			}
-			if (cenario == 1 && personagem instanceof Gandalf) {
+			if (cenario == 0 && personagem instanceof Gandalf) {
 				((Gandalf) personagem).aumentarXp(2);
+			}
+			if (cenario == 1 && personagem instanceof Espartano) {
+				((Espartano) personagem).aumentarXp(2);
 			}
 			if (cenario == 2) {
 				personagem.setLife(personagem.getLife() - 150);
