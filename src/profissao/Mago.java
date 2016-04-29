@@ -1,14 +1,14 @@
 package profissao;
 
 import armas.Cajado;
+import interfaces.Atacavel;
+import interfaces.Curador;
 import personagem.Personagem;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import atacar.Atacavel;
-
-public abstract class Mago extends Personagem implements Atacavel{
+public abstract class Mago extends Personagem implements Atacavel, Curador{
 	protected int mana ,intelligence;
 	protected Cajado cajadoDoMago;
 	
@@ -59,7 +59,17 @@ public abstract class Mago extends Personagem implements Atacavel{
 	public void adicionarRecompensas(final double recompensa){
 		recompensas.add(recompensa);
 	}
+	public void generarVida(int tempoDeCura){
+		this.mana -= CUSTODEREGENERACAOINDIVIDUAL*tempoDeCura;
+		this.life += this.life*FATORDERENERECAOINDIVIDUAL*tempoDeCura;
+	}
 	
+	public void generarAliados(ArrayList <Personagem> personagens, int tempoDeCura){
+		for(Personagem personagem:personagens){
+			if (personagem instanceof Mago)
+				personagem.setLife((personagem.getLife() +(personagem.getLife()*FATORDERENERECAOCOLETIVO*tempoDeCura)));
+		}
+	}
 	public abstract void ataqueMagico(int resistenciaInimiga);
 	public abstract void defesaMagico(int ataquedoInimigo);
 	
