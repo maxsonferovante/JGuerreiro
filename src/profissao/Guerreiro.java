@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import armas.Espada;
-import atacar.Atacavel;
+import interfaces.Atacavel;
 import personagem.Personagem;
 
 public abstract class Guerreiro extends Personagem implements Atacavel {

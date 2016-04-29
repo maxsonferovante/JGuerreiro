@@ -1,6 +1,5 @@
 package jogadores;
 
-import java.util.ArrayList;
 
 import personagem.Personagem;
 import profissao.Mago;

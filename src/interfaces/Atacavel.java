@@ -1,4 +1,4 @@
-package atacar;
+package interfaces;
 
 public interface Atacavel {
 	double atacarComArma(double VidaDoInimigo);
