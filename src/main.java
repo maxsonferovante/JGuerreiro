@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import jogadores.Espartano;
 import jogadores.Gandalf;
-import profissao.Guerreiro;
+
 import personagem.Data;
 import personagem.Personagem;
 
@@ -19,7 +19,8 @@ public class main {
 			escolha = JOptionPane.showInputDialog("1 - Para O Mago  2 - Para o Guerreiro ");
 			if (escolha != null) {
 				// Tranando um possivel erro de conversão caso usuário insira um
-				// caracter não númerico.
+				// caracter especial ou um alfabetico.
+				try {
 					int op = Integer.parseInt(escolha);
 					switch (op) {
 					case 1: {
@@ -58,13 +59,15 @@ public class main {
 					}
 						break;
 					}
+				} catch (NumberFormatException e) {
+					JOptionPane.showMessageDialog(null, "São aceitos apenas números. Escolha uma opção válida.");
+				}
 			} else {
 				break;
 			}
 		} while (true);
 		int cenario = new Random().nextInt(3);
-		JOptionPane.showMessageDialog(null,
-				"Após da escolha dos personagens. Aleatoriamente será escolhido o cenário.");
+		JOptionPane.showMessageDialog(null,"Após da escolha dos personagens. Aleatoriamente será escolhido o cenário.");
 
 		switch (cenario) {
 		case 0:
@@ -93,7 +96,5 @@ public class main {
 
 			System.out.println(personagem.getClass() + " - " + personagem.getNome() + " - " + personagem.getLife());
 		}
-
 	}
-	
 }
