@@ -4,20 +4,23 @@ public final class Espada {
 	private String tipodaEspada;
 	private float comprimentodaEspada;
 	private boolean empunhada;
-	
-	public Espada(){
-		
+
+	public Espada() {
+
 	}
-	public Espada(String tipo, float compri, boolean emp){
+
+	public Espada(String tipo, float compri, boolean emp) {
 		this.tipodaEspada = tipo;
 		this.comprimentodaEspada = compri;
 		this.empunhada = emp;
 	}
-	public Espada(final Espada outra){
+
+	public Espada(final Espada outra) {
 		this.tipodaEspada = outra.getTipodaEspada();
 		this.comprimentodaEspada = outra.getComprimentodaEspada();
 		this.empunhada = outra.isEmpunhada();
 	}
+
 	public String getTipodaEspada() {
 		return tipodaEspada;
 	}
@@ -41,10 +44,12 @@ public final class Espada {
 	public void setEmpunhada(boolean empunhada) {
 		this.empunhada = empunhada;
 	}
-	public void empunharEspada(){
-		
+
+	public void empunharEspada() {
+
 	}
-	public void desempunharEspada(){
-		
+
+	public void desempunharEspada() {
+
 	}
 }
